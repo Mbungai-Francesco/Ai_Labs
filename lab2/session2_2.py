@@ -18,12 +18,6 @@ X, y = make_classification(
 print("X shape:", X.shape)
 print("y shape:", y.shape)
 
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap='bwr')
-plt.title("Synthetic Binary Classification Dataset")
-plt.xlabel("Feature 1")
-plt.ylabel("Feature 2")
-plt.show()
-
 # Create model
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
 
@@ -37,3 +31,9 @@ print("Accuracy:", accuracy_score(y_test, y_pred))
 accuracy = rf.score(X_test, y_test)
 print(" \n Accuracy:", accuracy)
 print(classification_report(y_test, y_pred))
+
+plt.scatter(X[:, 0], X[:, 1], c=y, cmap='bwr')
+plt.title("Synthetic Binary Classification Dataset")
+plt.xlabel("Feature 1")
+plt.ylabel("Feature 2")
+plt.show()

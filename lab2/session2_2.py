@@ -9,11 +9,11 @@ from sklearn.metrics import accuracy_score
 # Create synthetic data
 X, y = make_classification(
     n_samples=200,      # total data points
-    n_features=7,       # only 2 features (for 2D visualization)
-    n_informative=7,    # both features useful
+    n_features=2,       # only 2 features (for 2D visualization)
+    n_informative=2,    # both features useful
     n_redundant=0,      # no duplicate features
     n_clusters_per_class=1,
-    random_state=42
+    random_state=0
 )
 print("X shape:", X.shape)
 print("y shape:", y.shape)

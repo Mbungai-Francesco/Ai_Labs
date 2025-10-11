@@ -1,6 +1,9 @@
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report, confusion_matrix
+
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Load the dataset
 train_test_dataset = np.load('embeddings-audio-lab2.npz')
@@ -23,8 +26,17 @@ y_pred = rf.predict(X_test)
 # Print the classification report
 print(classification_report(y_test, y_pred))
 
-# Print the confusion matrix
-print(f"Confusion matrix: \n{rf.predict_proba(X_test)}")
+# Compute and print the confusion matrix (counts)
+conf_mat = confusion_matrix(y_test, y_pred)
+print(f"Confusion matrix (counts): \n{conf_mat}")
+
+# Create a heatmap of the confusion matrix
+sns.heatmap(conf_mat, annot=True, fmt='d', cmap='Blues')
+plt.xlabel('Predicted')
+plt.ylabel('True')
+plt.title('Confusion matrix')
+plt.show()
+
 
 #Print the accuracy
 accuracy = rf.score(X_test, y_test)

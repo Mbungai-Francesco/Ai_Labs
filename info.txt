@@ -1,0 +1,2 @@
+python -m venv venv   \\ mto create a virtual env
+source venv/bin/activate  \\ to activate a venv

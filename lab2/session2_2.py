@@ -25,23 +25,38 @@ rf = RandomForestClassifier(n_estimators=500, random_state=0)
 rf.fit(X_train, y_train)
 
 y_pred = rf.predict(X_test)
-print("Accuracy:", accuracy_score(y_test, y_pred))
+#print("Accuracy:", accuracy_score(y_test, y_pred))
 
 # Evaluate
 accuracy = rf.score(X_test, y_test)
-print(" \n Accuracy:", accuracy)
+print(" \n Accuracy:", accuracy*100, "%")
 print(classification_report(y_test, y_pred))
 
+#visualization on test set
+plt.figure(figsize=(6, 4))
+plt.scatter(X_test[:, 0], X_test[:, 1], c=y_test, cmap='bwr', alpha=0.7)
+plt.title("Synthetic Binary Classification Dataset")
+plt.xlabel("Feature 1")
+plt.ylabel("Feature 2")
+plt.savefig("toy_testset.png", dpi=150)
+plt.show()
+
+
+# Visualization on entire dataset
+plt.figure(figsize=(6, 4))
 plt.scatter(X[:, 0], X[:, 1], c=y, cmap='bwr')
 plt.title("Synthetic Binary Classification Dataset")
 plt.xlabel("Feature 1")
 plt.ylabel("Feature 2")
+plt.savefig("toy_dataset.png", dpi=150)
 plt.show()
 
+#visualization on both entire dataset and test set with different markers
 plt.figure(figsize=(6, 4))
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap='bwr', alpha=0.7)
+plt.scatter(X[:, 0], X[:, 1], c=y, cmap='bwr', alpha=0.7, marker='o')
+plt.scatter(X_test[:, 0], X_test[:, 1], c=y_pred, cmap='bwr', alpha=0.7, marker='x')
 plt.title("Synthetic Binary Classification Dataset")
 plt.xlabel("Feature 1")
 plt.ylabel("Feature 2")
-plt.tight_layout()
-plt.savefig("toy_dataset.png", dpi=150)
+plt.savefig("toy_dataset_testset.png", dpi=150)
+plt.show()

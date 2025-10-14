@@ -21,7 +21,7 @@ print("y shape:", y.shape)
 # Create model
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
 
-rf = RandomForestClassifier(n_estimators=10, random_state=0)
+rf = RandomForestClassifier(n_estimators=500, random_state=0)
 rf.fit(X_train, y_train)
 
 y_pred = rf.predict(X_test)
@@ -37,3 +37,11 @@ plt.title("Synthetic Binary Classification Dataset")
 plt.xlabel("Feature 1")
 plt.ylabel("Feature 2")
 plt.show()
+
+plt.figure(figsize=(6, 4))
+plt.scatter(X[:, 0], X[:, 1], c=y, cmap='bwr', alpha=0.7)
+plt.title("Synthetic Binary Classification Dataset")
+plt.xlabel("Feature 1")
+plt.ylabel("Feature 2")
+plt.tight_layout()
+plt.savefig("toy_dataset.png", dpi=150)

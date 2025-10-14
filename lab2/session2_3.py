@@ -41,3 +41,11 @@ plt.show()
 #Print the accuracy
 accuracy = rf.score(X_test, y_test)
 print(f"Accuracy: {accuracy * 100:.2f}%")
+
+plt.figure(figsize=(8, 6))
+sns.heatmap(conf_mat, annot=True, fmt='d', cmap='Blues', cbar=False)
+plt.xlabel('Predicted Accent')
+plt.ylabel('True Accent')
+plt.title('Confusion Matrix: Random Forest on Audio Embeddings')
+plt.tight_layout()
+plt.savefig("confusion_matrix.png", dpi=150)

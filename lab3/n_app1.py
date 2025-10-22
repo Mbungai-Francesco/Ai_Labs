@@ -1,9 +1,5 @@
 from sklearn.datasets import load_digits
-from sklearn.cluster import KMeans
-from sklearn.decomposition import PCA, MiniBatchDictionaryLearning, DictionaryLearning, NMF
-from sklearn.manifold import TSNE
 from sklearn.feature_selection import VarianceThreshold
-
 import numpy as np
 from matplotlib import pyplot as plt
 

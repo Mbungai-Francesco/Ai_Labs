@@ -1,2 +1,4 @@
 python -m venv venv   \\ mto create a virtual env
 source venv/bin/activate  \\ to activate a venv
+
+sudo apt install python3-seaborn \\ command to install a package
